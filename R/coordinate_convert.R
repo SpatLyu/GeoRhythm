@@ -11,7 +11,7 @@ transformlat = function(x, y){
   return(ret)
 }
 
-#' transform latitude helper
+#' transform longitude helper
 #' @noRd
 transformlon = function(x, y){
   ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * sqrt(abs(x))
