@@ -13,7 +13,26 @@ Displays available north arrow types.
 The symbols were obtained from QGIS 2.8.1 - Wien.
 }
 \examples{
+\dontrun{
+# see all north arrow types:
 northtypes()
+
+# You can also get all the north arrow types by yourself:
+northsymbols = purrr::map(seq(1,19),\(.i) sprintf("\%02.f", .i) \%>\%
+                          paste0(system.file('symbols', package = 'georhythm'),
+                               '/', ., '.png') \%>\%
+                         figpatch::fig()  \%>\%
+                         figpatch::fig_lab(.,.i,size = 25,colour = 'black') \%>\%
+                         {. + theme_blank()})
+nafig = figpatch::fig_wrap(
+ northsymbols,
+ nrow = 4,
+ b_margin = ggplot2::margin(rep(30,4))
+)
+ggplot2::ggsave(plot = nafig,filename = './inst/symbols/northsymbols.png',
+               width = 12.5,height = 9.5,dpi = 100)
+
+}
 }
 \references{
 http://www.qgis.org/en/site
