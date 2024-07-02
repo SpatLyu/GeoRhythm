@@ -10,10 +10,15 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
+    ggplot2,
+    graphics,
+    grid,
     magrittr,
+    png,
     purrr,
     sf,
-    tibble
+    tibble,
+    utils
 Suggests: 
     arcgisbinding,
     dplyr,
