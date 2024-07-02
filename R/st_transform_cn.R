@@ -1,4 +1,7 @@
 #' @title coordinate conversion between GCJ02,BD09,WGS85
+#' @note
+#' `wgs` stands for `WGS84` coordinate system, `gcj` stands for `GCJ02` coordinate system,
+#' and `bd` stands for `BD09` coordinate system.
 #'
 #' @param lon Longitude vector.
 #' @param lat Latitude vector.

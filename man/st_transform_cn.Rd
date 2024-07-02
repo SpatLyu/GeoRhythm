@@ -21,6 +21,10 @@ A coordinate tibble in the target CRS.
 \description{
 coordinate conversion between GCJ02,BD09,WGS85
 }
+\note{
+\code{wgs} stands for \code{WGS84} coordinate system, \code{gcj} stands for \code{GCJ02} coordinate system,
+and \code{bd} stands for \code{BD09} coordinate system.
+}
 \examples{
 lon = c(126.626510,126.625261,126.626378,126.626541,126.626721,126.627732,126.626510)
 lat = c(45.731596,45.729834,45.729435,45.729676,45.729604,45.730915,45.731596)
