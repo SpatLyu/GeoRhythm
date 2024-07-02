@@ -18,6 +18,7 @@
 #' @param st.bottom logical. If `TRUE` (default) the scale bar's text is displayed at the bottom of the scale bar,
 #' if `FALSE`, it is displayed at the top.
 #' @param st.size number to indicate the scale bar's size. It is passed to \code{size} in `ggplot2::annotate()` function.
+#' Default is `2.5`.
 #' @param st.color color of the scale bar's text. Default is black.
 #' @param box.fill fill color of the box. If vector of two colors, the two boxes are filled with a different color.
 #' Defaults to black and white.
@@ -40,7 +41,7 @@
 #' @export
 #'
 geom_scalebar = \(data = NULL, location = "br", dist = NULL, dist_unit = NULL, transform = NULL, model = NULL, height = 0.02,
-                  st.dist = 0.02, st.bottom = TRUE, st.size = 5, st.color = "black", box.fill = c("black", "white"),
+                  st.dist = 0.02, st.bottom = TRUE, st.size = 2.5, st.color = "black", box.fill = c("black", "white"),
                   box.color = "black", border.size = 1, x.min = NULL, x.max = NULL, y.min = NULL, y.max = NULL,
                   anchor = NULL, facet.var = NULL, facet.lev = NULL, st.inherit = TRUE){
   if (is.null(data)) {
