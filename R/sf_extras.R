@@ -16,10 +16,10 @@
 st_point2polygon = \(pcoord1,pcoord2,pcrs = NULL){
   if (is.null(pcrs)) {pcrs = sf::st_crs('EPSG:4326')}
   p_sfc = tibble::tibble(pcoord1 = pcoord1,
-                         pcoord2 = pcoord2) |>
+                         pcoord2 = pcoord2) %>%
     sf::st_as_sf(coords = c('pcoord1','pcoord2'),
-                 crs = pcrs) |>
-    sf::st_combine() |>
+                 crs = pcrs) %>%
+    sf::st_combine() %>%
     sf::st_cast('POLYGON')
   return(p_sfc)
 }

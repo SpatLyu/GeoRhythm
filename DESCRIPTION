@@ -15,4 +15,7 @@ Imports:
     sf,
     tibble
 Suggests: 
-    dplyr
+    arcgisbinding,
+    dplyr,
+    raster,
+    terra
