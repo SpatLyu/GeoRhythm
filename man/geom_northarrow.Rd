@@ -44,3 +44,15 @@ Adds a north symbol to maps created with ggplot2.
 North symbols are included in the plot with the \code{ggplot2::annotation_custom()} function,
 which do not works when used together with an empty call to \code{ggplot2::ggplot()}.
 }
+\examples{
+\dontrun{
+library(ggplot2)
+library(georhythm)
+xian = arc_read(paste0(system.file('extdata','xian.gdb',package = 'georhythm'),'/urban'))
+
+ggplot(data = xian) +
+geom_sf(fill = 'transparent') +
+  geom_scalebar(data = xian, dist = 2, dist_unit = 'km') +
+  geom_northarrow(data = xian)
+}
+}

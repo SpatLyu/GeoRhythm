@@ -40,6 +40,16 @@
 #' @param st.inherit logical. Set as `FALSE` if scale bar has unexpected behavior in animations.
 #' @export
 #'
+#' @examples
+#' \dontrun{
+#' library(ggplot2)
+#' library(georhythm)
+#' xian = arc_read(paste0(system.file('extdata','xian.gdb',package = 'georhythm'),'/urban'))
+#' ggplot(data = xian) +
+#' geom_sf(fill = 'transparent') +
+#'   geom_scalebar(data = xian, dist = 2, dist_unit = 'km') +
+#'   geom_northarrow(data = xian)
+#' }
 geom_scalebar = \(data = NULL, location = "br", dist = NULL, dist_unit = NULL, transform = NULL, model = NULL, height = 0.02,
                   st.dist = 0.02, st.bottom = TRUE, st.size = 2.5, st.color = "black", box.fill = c("black", "white"),
                   box.color = "black", border.size = 1, x.min = NULL, x.max = NULL, y.min = NULL, y.max = NULL,
@@ -280,6 +290,17 @@ geom_scalebar = \(data = NULL, location = "br", dist = NULL, dist_unit = NULL, t
 #' which do not works when used together with an empty call to `ggplot2::ggplot()`.
 #' @export
 #'
+#' @examples
+#' \dontrun{
+#' library(ggplot2)
+#' library(georhythm)
+#' xian = arc_read(paste0(system.file('extdata','xian.gdb',package = 'georhythm'),'/urban'))
+#'
+#' ggplot(data = xian) +
+#' geom_sf(fill = 'transparent') +
+#'   geom_scalebar(data = xian, dist = 2, dist_unit = 'km') +
+#'   geom_northarrow(data = xian)
+#' }
 geom_northarrow = \(data = NULL, location = 'tr', scale = 0.1, type = 19,
                     x.min, x.max, y.min, y.max, anchor = NULL) {
   if (is.null(data)) {

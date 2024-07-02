@@ -93,3 +93,14 @@ The scale bar will be drawn only in the \code{facet.lev} facet.}
 \description{
 Adds a scale bar to maps created with ggplot.
 }
+\examples{
+\dontrun{
+library(ggplot2)
+library(georhythm)
+xian = arc_read(paste0(system.file('extdata','xian.gdb',package = 'georhythm'),'/urban'))
+ggplot(data = xian) +
+geom_sf(fill = 'transparent') +
+  geom_scalebar(data = xian, dist = 2, dist_unit = 'km') +
+  geom_northarrow(data = xian)
+}
+}
