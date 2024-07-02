@@ -3,7 +3,7 @@
 
 #' transform latitude helper
 #' @noRd
-transformlat = function(x, y){
+transformlat = \(x, y){
   ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * sqrt(abs(x))
   ret = ret + (20.0 * sin(6.0 * x * pi) + 20.0 * sin(2.0 * x * pi)) * 2.0 / 3.0
   ret = ret + (20.0 * sin(y * pi) + 40.0 * sin(y / 3.0 * pi)) * 2.0 / 3.0
@@ -13,7 +13,7 @@ transformlat = function(x, y){
 
 #' transform longitude helper
 #' @noRd
-transformlon = function(x, y){
+transformlon = \(x, y){
   ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * sqrt(abs(x))
   ret = ret + (20.0 * sin(6.0 * x * pi) + 20.0 * sin(2.0 * x * pi)) * 2.0 / 3.0
   ret = ret + (20.0 * sin(x * pi) + 40.0 * sin(x / 3.0 * pi)) * 2.0 / 3.0
@@ -31,14 +31,14 @@ transformlon = function(x, y){
 #' extreme points source: https://en.wikipedia.org/wiki/List_of_extreme_points_of_China
 #'
 #' @noRd
-inchina = function(lon, lat){
+inchina = \(lon, lat){
   return(ifelse((lat >=20.333333 & lat <= 53.55) &
                   (lon >=73.816667 & lon <= 134.75), TRUE, FALSE))
 }
 
 #' from GCJ02 to WGS84
 #' @noRd
-gcj2wgs = function(gcjlon,gcjlat){
+gcj2wgs = \(gcjlon,gcjlat){
   if (inchina(gcjlon,gcjlat)){
     dlat = transformlat(gcjlon - 105, gcjlat -35)
     dlon = transformlon(gcjlon - 105, gcjlat -35)
@@ -56,7 +56,7 @@ gcj2wgs = function(gcjlon,gcjlat){
 
 #' from WGS84 to GCJ02
 #' @noRd
-wgs2gcj = function(wgslon,wgslat){
+wgs2gcj = \(wgslon,wgslat){
   if(inchina(wgslon,wgslat)){
     dlat = transformlat(wgslon - 105, wgslat - 35)
     dlon = transformlon(wgslon - 105, wgslat - 35)
@@ -74,7 +74,7 @@ wgs2gcj = function(wgslon,wgslat){
 
 #' from BD09 to GCJ02
 #' @noRd
-bd2gcj = function(bdlon,bdlat){
+bd2gcj = \(bdlon,bdlat){
   x = bdlon - 0.0065
   y = bdlat - 0.006
   z = sqrt(x*x +y*y) - 0.00002*sin(y * pi * 3000.0 / 180.0)
@@ -85,7 +85,7 @@ bd2gcj = function(bdlon,bdlat){
 
 #' from GCJ02 to BD09
 #' @noRd
-gcj2bd = function(gcjlon,gcjlat){
+gcj2bd = \(gcjlon,gcjlat){
   x = gcjlon
   y = gcjlat
   z = sqrt(x*x + y*y) + 0.00002*sin(y * pi * 3000.0 / 180.0)
@@ -96,7 +96,7 @@ gcj2bd = function(gcjlon,gcjlat){
 
 #' from BD09 to WGS84
 #' @noRd
-bd2wgs = function(bdlon,bdlat){
+bd2wgs = \(bdlon,bdlat){
   if (inchina(bdlon,bdlat)){
     tempcoord = bd2gcj(bdlon,bdlat)
     templon = tempcoord[1]
@@ -110,7 +110,7 @@ bd2wgs = function(bdlon,bdlat){
 
 #' from WGS84 to BD09
 #' @noRd
-wgs2bd = function(wgslon,wgslat){
+wgs2bd = \(wgslon,wgslat){
   if(inchina(wgslon,wgslat)){
     tempcoord = wgs2gcj(wgslon,wgslat)
     templon = tempcoord[1]
